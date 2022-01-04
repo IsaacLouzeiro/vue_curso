@@ -1,5 +1,7 @@
 <template>
         <div>
+            <p>{{ email }}</p>
+
             <Picture />
 
             <p v-if="estou_trabalhando">Estou trabalhando no momento.</p>
@@ -30,11 +32,13 @@
         components: {
             Picture
         },
+        props: {
+            email: String,
+            estou_trabalhando: Boolean
+        },
         data() {
             return {
-                estou_trabalhando: true,
                 mostrar_email: false,
-                email: 'isaacelias1110@gmail.com',
                 meu_link: 'https://www.google.com',
                 textoBtn: "Mostrar Email",
                 backEnd: ['Python', 'PHP', 'Java', 'Asp.Net'],
@@ -55,8 +59,8 @@
         methods: {
             mostrarEmail() {
                 this.mostrar_email = !this.mostrar_email
-                switch (this.textoBtn) {
-                    case "Mostrar Email":
+                switch (this.mostrar_email) {
+                    case this.mostrar_email == this.mostrar_email:
                         this.textoBtn = "Ocultar Email"
                         break;
                 
